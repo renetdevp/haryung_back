@@ -33,6 +33,7 @@ const hos = ()=>{
     });
 
     require('./post');
+    require('./user');
 };
 
 module.exports = hos;

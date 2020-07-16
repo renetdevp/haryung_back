@@ -1,10 +1,14 @@
 const { Schema, model } = require('mongoose');
 
+const { db: { userModel } } = require('../const');
+const idMaxLength = userModel.id.maxlength;
+const nickMaxLength = userModel.nickname.maxlength;
+
 const userSchema = new Schema({
     id: {
         type: String,
         required: true,
-        maxlength: 12,
+        maxlength: idMaxLength,
     },
     pw: {
         type: String,
@@ -12,8 +16,8 @@ const userSchema = new Schema({
     },
     nickname: {
         type: String,
-        maxlength: 12,
-        default: '익명',
+        maxlength: nickMaxLength,
+        default: 'asdf',
     }
 }, {
     versionKey: false

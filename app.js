@@ -8,6 +8,7 @@ const cors = require('cors');
 
 const run = require('./models');
 const posts = require('./routes/posts');
+const users = require('./routes/users');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,6 +20,7 @@ app.use(logger('common'));
 run();
 
 app.use('/posts', posts);
+app.use('/users', users);
 
 app.head('/status', (req, res, next)=>{
     res.status(200).json({
