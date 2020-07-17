@@ -17,7 +17,7 @@ module.exports.userValidator = (id, pw, nickname) => {
 
     for (e in data){
         const { length, maxLength } = data[e];
-        console.log(length, maxLength)
+        
         if (length > maxLength) return false;
     }
 

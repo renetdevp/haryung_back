@@ -4,10 +4,10 @@ const User = require('../models/user');
 const { userValidator } = require('../utils/validator');
 
 router.post('/', async (req, res, next) => {
-    const { id, pw, nickname } = req.body;
-    const nick = !!nickname ? nickname : 'asdf';
+    const { id, pw, nick } = req.body;
+    const nickname = !!nick ? nick : 'asdf';
 
-    if(!userValidator(id, pw, nick)){
+    if(!userValidator(id, pw, nickname)){
         return res.status(400).json({
             msg: 'Invalid value'
         });
@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
         await User.create({
             id,
             pw,
-            nickname: nick
+            nickname
         });
 
         return res.status(200).json({
