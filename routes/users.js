@@ -3,6 +3,18 @@ const router = require('express').Router();
 const User = require('../models/user');
 const { userValidator } = require('../utils/validator');
 
+router.get('/', async (req, res, next) => {
+    try {
+        const users = await User.find({}, { id: 1, nickname: 1, _id: 0 });
+
+        res.status(200).json({
+            users
+        });
+    } catch (err) {
+        next(err);
+    }
+});
+
 router.post('/', async (req, res, next) => {
     const { id, pw, nick } = req.body;
     const nickname = !!nick ? nick : 'asdf';
