@@ -3,7 +3,7 @@ const { db: { host, id, pw } } = require('../const');
 const encodedPw = encodeURIComponent(pw);
 
 const hos = ()=>{
-    const run = async ()=>{
+    const run = async () => {
         try {
             const db_url = `mongodb://${id}:${encodedPw}@${host}/admin`;
             await mongoose.connect(db_url, {
