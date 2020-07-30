@@ -9,4 +9,5 @@ module.exports = {
         },
     },
     port: process.env.PORT,
+    saltRounds: 13,
 };

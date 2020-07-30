@@ -23,8 +23,4 @@ const userSchema = new Schema({
     versionKey: false
 });
 
-userSchema.methods.verifyPW = function (pw) {
-    console.log('hihi');
-}
-
 module.exports = model('User', userSchema);;
